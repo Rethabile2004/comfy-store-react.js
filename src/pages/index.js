@@ -10,4 +10,5 @@ export {default as Oders} from './Oders'
 export {default as Products} from './Products'
 export {default as SIngleProduct} from './SIngleProduct'
 export {default as Register} from './Register'
+export {default as ErrorElement} from '../componets/ErrorElement'
 

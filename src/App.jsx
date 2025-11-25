@@ -1,8 +1,8 @@
 import React from 'react'
-import { About, Cart, Checkout, CheckoutError, Error, HomeLayout, Landing, Login, Oders, Products, Register, SIngleProduct } from './pages'
+import { About, Cart, Checkout, CheckoutError, Error, ErrorElement, HomeLayout, Landing, Login, Oders, Products, Register, SIngleProduct } from './pages'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-// main.jsx or main.tsx
-import './index.css'
+import { loader as landingLoader } from './pages/Landing';
+
 
 const router = createBrowserRouter([
   {
@@ -12,7 +12,9 @@ const router = createBrowserRouter([
     children:[
       {
         index:true,
-        element:<Landing/>
+        element:<Landing/>,
+        errorElement:<ErrorElement/>,
+        loader:landingLoader
       },
       {
         path:"/about",

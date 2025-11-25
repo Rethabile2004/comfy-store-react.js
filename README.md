@@ -1100,7 +1100,6 @@ const Hero = () => {
         <h1 className='max-w-2xl text-4xl font-bold tracking-tight  sm:text-6xl '>
           We’re changing the way people shop.
         </h1>
-
         <p className='mt-8 max-w-xl text-lg leading-8'>
           Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
           cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat

@@ -25,7 +25,7 @@ const Navbar = () => {
   },[theme])
   return (
     <nav className='bg-base-200'>
-      <div className='navbar align-element '>
+      <div className='navbar align-elements '>
         <div className='navbar-start'>
           {/* Title */}
           <NavLink
