@@ -1,9 +1,20 @@
 import React from 'react'
+import { customFetch } from '../utils';
+import { useLoaderData } from 'react-router-dom';
 
-const SIngleProduct = () => {
+export const loader= async({params})=>{
+  const id=params.id;
+  const response=await customFetch.get(`/products/${id}`)
+  const product=response.data.data
+  return {product}
+}
+
+const SingleProduct = () => {
+  const product=useLoaderData()
+  const {title,description,image,price,colors,company}=product;
   return (
-    <div>SIngleProduct</div>
+    <div>SingleProduct</div>
   )
 }
 
-export default SIngleProduct
+export default SingleProduct

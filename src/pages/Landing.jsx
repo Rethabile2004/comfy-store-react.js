@@ -1,10 +1,12 @@
 import React from 'react'
-import { Hero } from '../componets'
+import { FeaturedProducts, Hero } from '../componets'
 import { customFetch } from '../utils'
 
-export const loader = async () => {
+export const loader = async ({request}) => {
   const response = await customFetch.get('/products');
   const products = response.data.data
+  console.log(request);
+  
   return { products }
 }
 
@@ -12,6 +14,7 @@ const Landing = () => {
   return (
     <>
       <Hero />
+      <FeaturedProducts/>
     </>
   )
 }

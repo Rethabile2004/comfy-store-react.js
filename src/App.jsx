@@ -1,49 +1,50 @@
 import React from 'react'
-import { About, Cart, Checkout, CheckoutError, Error, ErrorElement, HomeLayout, Landing, Login, Oders, Products, Register, SIngleProduct } from './pages'
+import { About, Cart, Checkout, CheckoutError, Error, ErrorElement, HomeLayout, Landing, Login, Oders, Products, Register, SingleProduct } from './pages'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { loader as landingLoader } from './pages/Landing';
-
+import { loader as singleProductLoader } from './pages/SingleProduct';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
     errorElement: <Error />,
-    children:[
+    children: [
       {
-        index:true,
-        element:<Landing/>,
-        errorElement:<ErrorElement/>,
-        loader:landingLoader
+        index: true,
+        element: <Landing />,
+        errorElement: <ErrorElement />,
+        loader: landingLoader
       },
       {
-        path:"/about",
-        element:<About/>
+        path: "/about",
+        element: <About />
       },
       {
-        path:"/cart",
-        element:<Cart/>
+        path: "/cart",
+        element: <Cart />
       },
       {
-        path:"/checkout",
-        element:<Checkout/>,
-        errorElement:<CheckoutError/>
+        path: "/checkout",
+        element: <Checkout />,
+        errorElement: <CheckoutError />
       },
       {
-        path:"/oders",
-        element:<Oders/>
+        path: "/oders",
+        element: <Oders />
       },
       {
-        path:"/products",
-        element:<Products/>
+        path: "/products",
+        element: <Products />
       },
       {
-        path:"/products/:id",
-        element:<SIngleProduct/>
+        path: "/products/:id",
+        element: <SingleProduct />,
+        loader: singleProductLoader
       },
       {
-        path:"/about",
-        element:<About/>
+        path: "/about",
+        element: <About />
       }
     ]
   },
