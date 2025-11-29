@@ -11,7 +11,7 @@ const ProductsGrid = () => {
             {products.map((product) => {
                 const { title, image, price } = product.attributes
                     const dollarsAmount=formatCurrency(price);
-                return <Link to={`/products/${product.id}`} className='card w-full shadow-xl hover:shadow-2xl transition duration-300'>
+                return <Link key={product.id} to={`/products/${product.id}`} className='card w-full shadow-xl hover:shadow-2xl transition duration-300'>
                     <figure className='px-4 pt-4'>
                         <img src={image} alt={title} className='w-full object-cover rounded-xl h-64 md:h-48 ' />                        
                     </figure>
