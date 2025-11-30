@@ -4,9 +4,10 @@ import FormSelect from './FormSelect';
 import FormRange from './FormRange';
 import FormCheckbox from './FormCheckBox';
 
-<FormInput />
+{/* <FormInput /> */}
 const Filters = () => {
-  const {meta}=useLoaderData()
+  const {meta,params}=useLoaderData()
+  const{search,category,company,order,price,shipping}=params
   return (
     <Form className='bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
       {/* SEARCH */}
@@ -15,12 +16,14 @@ const Filters = () => {
         label='search product'
         name='search'
         size='input-sm'
+        defaultValue={search}
       />
       <FormSelect
         label='select category'
         name='category'
         list={meta.categories}
         size='select-sm'
+        defaultValue={category}
       />
       {
         /* COMPANIES */
@@ -30,6 +33,7 @@ const Filters = () => {
         name='company'
         list={meta.companies}
         size='select-sm'
+        defaultValue={company}
       />
       {
         /* ORDER */
@@ -39,9 +43,10 @@ const Filters = () => {
         name='order'
         list={['a-z', 'z-a', 'high', 'low']}
         size='select-sm'
+        defaultValue={order}
       />
-      <FormRange label='select price' name='price' size='range-sm' />
-      <FormCheckbox label='free shipping' name='shipping' size='checkbox-sm' />
+      <FormRange label='select price' name='price' size='range-sm' price={price}/>
+      <FormCheckbox label='free shipping' name='shipping' size='checkbox-sm' defaultValue={shipping}/>
       {/* BUTTONS */}
       <button type='submit' className='btn btn-primary btn-sm '>
         search
