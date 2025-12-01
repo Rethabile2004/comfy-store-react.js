@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { customFetch, formatCurrency, generateAmountOptions } from '../utils';
 import { Link, useLoaderData } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../features/cart/cartSlice';
 
 export const loader = async ({ params }) => {
   const id = params.id;
@@ -18,6 +20,19 @@ const SingleProduct = () => {
   const handleAmount = (e) => {
     setAmount(e.target.value);
     generateAmountOptions(colors.length);
+  }
+
+  const cartProduct = {
+    cartId: product.id + productColor,
+    productID: product.id,
+    image, title, price, description, company
+  }
+
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(addItem({ product: cartProduct }))
+    console.log(cartProduct);
+    
   }
 
   return (
@@ -43,7 +58,7 @@ const SingleProduct = () => {
             <h4 className='font-medium text-medium tracking-wider capitalize'>colors</h4>
             <div className='mt-2'>
               {colors.map((color) => {
-                return <button  key={color}  type='button' className={`h-6 w-6 mr-2 badge ${color == productColor && 'border-2 border-secondary'}`} onClick={() => setProductColor(color)} style={{ backgroundColor: color }}></button>
+                return <button key={color} type='button' className={`h-6 w-6 mr-2 badge ${color == productColor && 'border-2 border-secondary'}`} onClick={() => setProductColor(color)} style={{ backgroundColor: color }}></button>
               })}
             </div>
           </div>
@@ -66,7 +81,7 @@ const SingleProduct = () => {
           <div className='mt-10 '>
             <button
               className='btn btn-secondary btn-md'
-              onClick={() => console.log('add to bag')}
+              onClick={addToCart}
             >
               Add to bag
             </button>
