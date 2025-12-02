@@ -31,7 +31,7 @@ const SingleProduct = () => {
   const dispatch = useDispatch()
   const addToCart = () => {
     dispatch(addItem({ product: cartProduct }))
-    console.log(cartProduct);
+    // console.log(cartProduct);
     
   }
 
