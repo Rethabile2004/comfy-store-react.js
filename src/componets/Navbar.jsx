@@ -3,28 +3,16 @@ import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
 import Navlinks from './Navlinks';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-
-const getThemeFromLocalStorage = () => {
-  return localStorage.getItem('theme') || themes.winter
-}
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../features/user/userSlice';
 
 const Navbar = () => {
-  const themes = {
-    winter: 'winter',
-    dracula: 'dracula'
-  }
-  const [theme, setTheme] = useState(getThemeFromLocalStorage());
-  const numItemsInCart=useSelector((state)=>state.cartState.numItemsInCart);
+  const dipatch = useDispatch()
+
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
   const handleTheme = () => {
-    const { dracula, winter } = themes
-    const newTheme = theme === winter ? dracula : winter;
-    setTheme(newTheme)
+    dipatch(toggleTheme())
   }
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
   return (
     <nav className='bg-base-200'>
       <div className='navbar align-elements '>

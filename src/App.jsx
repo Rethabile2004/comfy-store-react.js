@@ -4,6 +4,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { loader as landingLoader } from './pages/Landing';
 import { loader as singleProductLoader } from './pages/SingleProduct';
 import { loader as productsLoader } from './pages/Products';
+import { action as registerAction } from './pages/Register';
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,7 +62,8 @@ const router = createBrowserRouter([
   {
     path: "/Register",
     element: <Register />,
-    errorElement: <Error />
+    errorElement: <Error />,
+    action:registerAction
   }
 ]);
 
