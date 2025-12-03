@@ -1,6 +1,12 @@
 import { FormInput, SubmitBtn } from '../componets';
 import { Form, Link, redirect, useNavigate } from 'react-router-dom';
 
+export const action = (store)=> async () => {
+  console.log(store);
+  
+  return null
+}
+
 const Login = () => {
   const navigate = useNavigate();
   return (
