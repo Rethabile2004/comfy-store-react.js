@@ -1,4 +1,4 @@
-import { formatCurrency, generateAmountOptions } from '../utils';
+import { formatPrice, generateAmountOptions } from '../utils';
 import { removeItem, editItem } from '../features/cart/cartSlice';
 import { useDispatch } from 'react-redux';
 const CartItem = ({ cartItem }) => {
@@ -68,7 +68,7 @@ const CartItem = ({ cartItem }) => {
       </div>
 
       {/* PRICE */}
-      <p className='font-medium sm:ml-auto'>{formatCurrency(price)}</p>
+      <p className='font-medium sm:ml-auto'>{formatPrice(price)}</p>
     </article>
   );
 };

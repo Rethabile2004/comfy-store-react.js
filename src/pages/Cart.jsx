@@ -1,12 +1,9 @@
-import React from 'react'
 import { useSelector } from 'react-redux';
-import { SectionTitle } from '../componets';
-import CartItemsList from '../componets/CartItemsList';
-import CartTotals from '../componets/CartTotals';
+import { CartItemsList, SectionTitle, CartTotals } from '../components';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const user = null
+  const user = useSelector((state) => state.userState.user);
 
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 

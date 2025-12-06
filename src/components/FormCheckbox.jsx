@@ -13,4 +13,4 @@ const FormCheckbox = ({ label, name, defaultValue, size }) => {
     </div>
   );
 };
-export default FormCheckbox
+export default FormCheckbox;

@@ -1,19 +1,19 @@
-import { formatCurrency } from '../utils';
 import { Link, useLoaderData } from 'react-router-dom';
+import { formatPrice } from '../utils';
 
-const ProductList = () => {
+const ProductsList = () => {
   const { products } = useLoaderData();
+
   return (
     <div className='mt-12 grid gap-y-8'>
       {products.map((product) => {
         const { title, price, image, company } = product.attributes;
-        const dollarsAmount = formatCurrency(price);
-
+        const dollarsAmount = formatPrice(price);
         return (
           <Link
             key={product.id}
             to={`/products/${product.id}`}
-            className='p-8 rounded-lg flex flex-col sm:flex-row gap-y-4 flex-wrap bg-base-100 shadow-xl hover:shadow-2xl duration-300 group'
+            className='p-8 rounded-lg flex flex-col sm:flex-row gap-y-4 flex-wrap  bg-base-100 shadow-xl hover:shadow-2xl duration-300 group'
           >
             <img
               src={image}
@@ -25,10 +25,7 @@ const ProductList = () => {
               <h4 className='capitalize text-md text-neutral-content'>
                 {company}
               </h4>
-
-              {/* COLOR */}
             </div>
-
             <p className='font-medium ml-0 sm:ml-auto text-lg'>
               {dollarsAmount}
             </p>
@@ -38,5 +35,4 @@ const ProductList = () => {
     </div>
   );
 };
-
-export default ProductList;
+export default ProductsList;
