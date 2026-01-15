@@ -4,6 +4,7 @@ import hero1 from '../assets/hero1.webp';
 import hero2 from '../assets/hero2.webp';
 import hero3 from '../assets/hero3.webp';
 import hero4 from '../assets/hero4.webp';
+import { BsGithub } from 'react-icons/bs';
 
 const carouselImages = [hero1, hero2, hero3, hero4];
 
@@ -12,16 +13,17 @@ const Hero = () => {
     <div className='grid lg:grid-cols-2 gap-24 items-center'>
       <div>
         <h1 className='max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl'>
-          We are changing the way people shop
+          Discover a Smarter Way to Shop
         </h1>
         <p className='mt-8 max-w-xl text-lg leading-8'>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore
-          repellat explicabo enim soluta temporibus asperiores aut obcaecati
-          perferendis porro nobis.
+          Experience curated collections, seamless navigation, and a shopping journey designed around you. From timeless interiors to everyday essentials, we bring style and simplicity together—so you can focus on what truly matters.
         </p>
-        <div className='mt-10'>
+        <div className='mt-10 flex gap-x-3'>
           <Link to='/products' className='btn btn-primary'>
             Our Products
+          </Link>
+          <Link to='https://github.com/Rethabile2004/comfy-store-react.js' className='btn btn-secondary'>
+            <BsGithub /> Github
           </Link>
         </div>
       </div>
