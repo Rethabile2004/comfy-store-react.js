@@ -5,6 +5,7 @@ import NavLinks from './NavLinks';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../features/user/userSlice';
+import { ShoppingBag, Smartphone } from 'lucide-react';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const Navbar = () => {
             to='/'
             className='hidden lg:flex btn btn-primary text-3xl items-center'
           >
-            C
+            <ShoppingBag />
           </NavLink>
           {/* DROPDOWN */}
           <div className='dropdown'>
