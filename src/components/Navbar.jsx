@@ -1,67 +1,60 @@
-import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
+import { BsCart3 } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
 import NavLinks from './NavLinks';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme } from '../features/user/userSlice';
-import { ShoppingBag, Smartphone } from 'lucide-react';
+import { useSelector } from 'react-redux';
+import { ShoppingBag } from 'lucide-react';
+import { useState } from 'react';
 
 const Navbar = () => {
-  const dispatch = useDispatch();
-
-  const handleTheme = () => {
-    dispatch(toggleTheme());
-  };
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
   return (
-    <nav className='bg-base-200'>
-      <div className='navbar align-element'>
+    <nav className='sticky top-0 z-40 border-b border-base-300 bg-white/95 backdrop-blur'>
+      <div className='navbar align-element relative'>
         <div className='navbar-start'>
-          {/* TITLE */}
           <NavLink
             to='/'
-            className='hidden lg:flex btn btn-primary text-3xl items-center'
+            className='hidden h-12 w-12 items-center justify-center rounded-xl bg-primary text-white shadow-sm transition hover:bg-indigo-700 lg:flex'
+            aria-label='Comfy Store home'
           >
             <ShoppingBag />
           </NavLink>
-          {/* DROPDOWN */}
-          <div className='dropdown'>
-            <label tabIndex={0} className='btn btn-ghost lg:hidden'>
-              <FaBarsStaggered className='h-6 w-6' />
-            </label>
-            <ul
-              tabIndex={0}
-              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52'
+
+          <div className='lg:hidden'>
+            <button
+              type='button'
+              className='btn btn-ghost btn-circle'
+              onClick={() => setIsMenuOpen((value) => !value)}
+              aria-label='Open menu'
             >
-              <NavLinks />
-            </ul>
+              <FaBarsStaggered className='h-6 w-6' />
+            </button>
+            {isMenuOpen && (
+              <ul className='menu absolute left-6 top-20 z-50 w-56 rounded-2xl border border-base-300 bg-white p-3 shadow-soft'>
+                <NavLinks onClick={() => setIsMenuOpen(false)} />
+              </ul>
+            )}
           </div>
         </div>
+
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal'>
             <NavLinks />
           </ul>
         </div>
+
         <div className='navbar-end'>
-          {/* THEME SETUP */}
-          <label className='swap swap-rotate'>
-            <input type='checkbox' onChange={handleTheme} />
-            {/* sun icon*/}
-            <BsSunFill className='swap-on h-4 w-4' />
-            {/* moon icon*/}
-            <BsMoonFill className='swap-off h-4 w-4' />
-          </label>
-          {/* CART LINK */}
-          <NavLink to='/cart' className='btn btn-ghost btn-circle btn-md ml-4'>
-            <div className='indicator'>
-              <BsCart3 className='h-6 w-6' />
-              <span className='badge badge-sm badge-primary indicator-item'>
-                {numItemsInCart}
-              </span>
-            </div>
+          <NavLink
+            to='/cart'
+            className='relative flex h-11 w-11 items-center justify-center rounded-full text-base-content transition hover:bg-base-200'
+            aria-label='Shopping cart'
+          >
+            <BsCart3 className='h-6 w-6' />
+            <span className='absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1.5 text-xs font-bold text-white'>
+              {numItemsInCart}
+            </span>
           </NavLink>
         </div>
       </div>

@@ -10,7 +10,7 @@ const links = [
   { id: 6, url: 'orders', text: 'orders' },
 ];
 
-const NavLinks = () => {
+const NavLinks = ({ onClick }) => {
   const user = useSelector((state) => state.userState.user);
   return (
     <>
@@ -19,7 +19,7 @@ const NavLinks = () => {
         if ((url === 'checkout' || url === 'orders') && !user) return null;
         return (
           <li key={id}>
-            <NavLink className='capitalize' to={url}>
+            <NavLink className='capitalize' to={url} onClick={onClick}>
               {text}
             </NavLink>
           </li>

@@ -1,9 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-    .align-element{
-        @apply mx-auto max-w-6xl px-8;
-    }
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base-100 font-sans text-base-content antialiased;
+  }
+
+  ::selection {
+    @apply bg-secondary text-white;
+  }
+}
+
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-6xl px-6 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-transparent px-5 py-2.5 text-sm font-semibold capitalize tracking-normal transition duration-200 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white shadow-sm hover:bg-indigo-700;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white shadow-sm hover:bg-purple-800;
+  }
+
+  .btn-accent {
+    @apply bg-neutral text-white shadow-sm hover:bg-slate-800;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-base-content hover:bg-base-200;
+  }
+
+  .btn-outline {
+    @apply border-current bg-transparent;
+  }
+
+  .btn-xs {
+    @apply min-h-8 px-3 py-1 text-xs;
+  }
+
+  .btn-sm {
+    @apply min-h-9 px-4 py-2 text-xs;
+  }
+
+  .btn-md {
+    @apply min-h-11 px-5 py-2.5 text-sm;
+  }
+
+  .btn-block {
+    @apply w-full;
+  }
+
+  .btn-wide {
+    @apply min-w-44;
+  }
+
+  .btn-circle {
+    @apply h-11 w-11 rounded-full p-0;
+  }
+
+  .card {
+    @apply rounded-2xl border border-base-300 bg-white shadow-soft;
+  }
+
+  .card-body {
+    @apply flex flex-col gap-4 p-6;
+  }
+
+  .card-title {
+    @apply text-lg font-bold text-base-content;
+  }
+
+  .form-control {
+    @apply flex flex-col gap-2;
+  }
+
+  .label {
+    @apply flex items-center justify-between gap-3 py-1 text-sm font-medium text-slate-700;
+  }
+
+  .label-text {
+    @apply text-sm font-medium text-slate-700;
+  }
+
+  .input,
+  .select {
+    @apply h-11 w-full rounded-lg border border-base-300 bg-white px-3 text-sm text-base-content outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10;
+  }
+
+  .input-sm,
+  .select-sm {
+    @apply h-10 text-sm;
+  }
+
+  .select-xs {
+    @apply h-8 rounded-md px-2 text-xs;
+  }
+
+  .checkbox {
+    @apply h-5 w-5 rounded border-base-300 text-primary accent-primary;
+  }
+
+  .checkbox-sm {
+    @apply h-4 w-4;
+  }
+
+  .range {
+    @apply h-2 w-full cursor-pointer accent-primary;
+  }
+
+  .range-sm {
+    @apply h-1.5;
+  }
+
+  .badge {
+    @apply inline-flex min-h-5 min-w-5 items-center justify-center rounded-full border border-transparent px-2 text-xs font-semibold;
+  }
+
+  .badge-sm {
+    @apply min-h-4 min-w-4 px-1;
+  }
+
+  .badge-lg {
+    @apply min-h-8 px-4 text-sm;
+  }
+
+  .badge-primary {
+    @apply bg-primary text-white;
+  }
+
+  .badge-outline {
+    @apply border-base-300 bg-white text-base-content;
+  }
+
+  .link {
+    @apply font-medium text-inherit underline-offset-4 transition;
+  }
+
+  .link-hover {
+    @apply hover:underline;
+  }
+
+  .link-primary {
+    @apply text-primary hover:text-indigo-700;
+  }
+
+  .navbar {
+    @apply flex min-h-20 items-center justify-between;
+  }
+
+  .navbar-start,
+  .navbar-center,
+  .navbar-end {
+    @apply flex items-center;
+  }
+
+  .navbar-start {
+    @apply flex-1 justify-start;
+  }
+
+  .navbar-center {
+    @apply flex-1 justify-center;
+  }
+
+  .navbar-end {
+    @apply flex-1 justify-end;
+  }
+
+  .menu {
+    @apply flex flex-col gap-1;
+  }
+
+  .menu-horizontal {
+    @apply flex-row items-center gap-1;
+  }
+
+  .menu-sm {
+    @apply text-sm;
+  }
+
+  .menu a {
+    @apply rounded-lg px-4 py-2 text-sm font-semibold capitalize text-slate-700 transition hover:bg-base-200 hover:text-primary;
+  }
+
+  .menu a.active {
+    @apply bg-primary text-white hover:bg-primary hover:text-white;
+  }
+
+  .join {
+    @apply inline-flex overflow-hidden rounded-lg border border-base-300 bg-white shadow-sm;
+  }
+
+  .join-item {
+    @apply rounded-none border-0 border-r border-base-300 last:border-r-0;
+  }
+
+  .table {
+    @apply w-full border-collapse overflow-hidden rounded-xl text-left text-sm;
+  }
+
+  .table th {
+    @apply bg-neutral px-4 py-3 font-semibold text-white;
+  }
+
+  .table td {
+    @apply border-b border-base-300 px-4 py-4;
+  }
+
+  .table-zebra tbody tr:nth-child(even) {
+    @apply bg-base-200;
+  }
+
+  .stats {
+    @apply rounded-2xl;
+  }
+
+  .stat {
+    @apply px-6 py-4;
+  }
+
+  .stat-title {
+    @apply text-sm font-semibold;
+  }
+
+  .footer {
+    @apply grid gap-8;
+  }
+
+  .footer-title {
+    @apply mb-3 block text-sm font-bold uppercase tracking-[0.18em] text-slate-900;
+  }
+
+  .footer-center {
+    @apply text-center;
+  }
 }

@@ -36,7 +36,7 @@ const About = () => {
           <div className='card-body items-center text-center'>
             <Layout className='w-12 h-12 text-accent' /> 
             <h2 className='card-title mt-4'>Design</h2>
-            <p className='text-sm'>Crafted with Tailwind CSS and DaisyUI for a fully responsive, mobile-first experience.</p>
+            <p className='text-sm'>Crafted with Tailwind CSS for a fully responsive, mobile-first experience.</p>
           </div>
         </div>
 
