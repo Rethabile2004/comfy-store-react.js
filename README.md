@@ -1,105 +1,94 @@
-# React E-Commerce Frontend
+# Comfy Store
 
-A complete e-commerce frontend built as part of a Udemy assignment.  
-This project demonstrates **real-world React architecture**, modern routing patterns, dynamic UI rendering, server-driven pagination, filters, and clean component structure. It simulates a production-ready React application using **Tailwind CSS** and **React Router Data APIs**.
+Comfy Store is a responsive e-commerce frontend built with React, Vite, React Router, Redux Toolkit, TanStack Query, Axios, and Tailwind CSS. It includes product browsing, filtering, pagination, cart management, authentication, checkout, and order history.
 
----
-
-## Project Purpose
-
-This project was created to practice building a scalable React application from scratch using:
-
-- React Router loaders and actions  
-- Tailwind CSS for styling  
-- Reusable UI components  
-- API-driven product fetching  
-- Filters, pagination, and cart functionality  
-
-The assignment required structuring the application properly, managing state across routes, and working with dynamic data while keeping the UI consistent and responsive.
-
----
+The project focuses on clean React structure, route-based data loading, reusable components, and a polished shopping experience without relying on UI component libraries.
 
 ## Features
 
-### Product Listing
-- Dynamic grid and list layouts  
-- Server-side pagination  
-- Category, company, and search filters  
-- Sort options  
-- Zero-results handling  
+- Responsive landing page with a clean hero section
+- Product catalog with grid and list views
+- Search, category, company, price, shipping, and sort filters
+- Server-driven pagination
+- Single product details page
+- Product color and quantity selection
+- Persistent shopping cart with Redux Toolkit
+- Cart totals with tax, shipping, and order total calculation
+- User login, registration, and guest login
+- Protected checkout and orders routes
+- Checkout form with React Router actions
+- Order history table with pagination
+- Loading and error states
+- Tailwind-only styling with a black, white, deep blue, and purple palette
 
-### Single Product Page
-- Product details  
-- Dynamic quantity selection  
-- Add-to-cart integration  
+## Tech Stack
 
-### Cart
-- Quantity adjustment  
-- Automatic totals  
-- Session-level state  
-
-### UI and Styling
-- Fully responsive Tailwind design  
-- Consistent typography system  
-- Reusable card, button, and layout components  
-
-### Data Layer
-- React Router loaders for data fetching  
-- Actions for form handling  
-- Axios + custom fetch wrapper  
-
----
-
-## Technologies Used
-
-- React  
-- React Router v6 Data API  
-- Tailwind CSS  
-- Axios  
-- Vite  
-- JavaScript ES6+  
-
----
-
-## React Hooks Used
-
-This project leverages multiple built-in hooks for state, routing, and performance:
-
-- `useState`  
-- `useEffect`  
-- `useParams`  
-- `useNavigate`  
-- `useSearchParams`  
-- `useLoaderData`  
-- `useNavigation`  
-- `useNavigation`  
-and more
----
+- React
+- Vite
+- JavaScript
+- React Router
+- Redux Toolkit
+- TanStack Query
+- Axios
+- Tailwind CSS
+- React Toastify
+- Lucide React
+- React Icons
 
 ## Project Structure
-src/ components/ Filters.jsx ProductGrid.jsx ProductList.jsx PaginationContainer.jsx Navbar.jsx
-pages/ Landing.jsx Products.jsx SingleProduct.jsx Cart.jsx
-utils/ customFetch.js formatPrice.js generateAmountOptions.jsx
-routes/ router.js
-styles/ globals.css tailwind.config.j
 
----
-
-## Installation and Setup
-
-Clone the repository:
-
-```bash
-git clone https://github.com/rethabile2004/comfy-store-react.js.git
-cd comfy-store
+```text
+src/
+  components/     Shared UI, forms, navigation, cart, filters, and product views
+  features/       Redux slices for user and cart state
+  pages/          Route-level pages and route loaders/actions
+  utils/          Axios client, price formatting, and helper functions
+  App.jsx         Router and query client setup
+  main.jsx        React entry point
 ```
-Install dependencies:
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
 
 ```bash
+git clone https://github.com/Rethabile2004/comfy-store-react.js.git
+cd comfy-store-react.js
 npm install
 ```
-run project:
+
+### Run Locally
 
 ```bash
 npm run dev
 ```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Notes
+
+This project uses an external API through the custom Axios client in `src/utils`. Some features, such as login, checkout, and orders, depend on that API being available.
+
+## Portfolio Summary
+
+Built a full React e-commerce frontend with route loaders/actions, Redux cart state, authenticated checkout, order history, dynamic filtering, pagination, reusable components, and a custom Tailwind design system.
+
+## Author
+
+Rethabile Eric Siase  
+[GitHub](https://github.com/Rethabile2004) | [LinkedIn](https://www.linkedin.com/in/rethabile-eric-siase-6199a131a/)
